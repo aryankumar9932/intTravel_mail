@@ -1,0 +1,6 @@
+[
+  {"id": "g-jaipur-1", "name": "Ananya Sharma", "destination": "Jaipur", "languages": "English · Hindi", "rating": 4.9, "specialty": "Heritage & food"},
+  {"id": "g-jaipur-2", "name": "Rohan Mehta", "destination": "Jaipur", "languages": "English · French", "rating": 4.8, "specialty": "Architecture"},
+  {"id": "g-goa-1", "name": "Maya D'Souza", "destination": "Goa", "languages": "English · Konkani", "rating": 4.9, "specialty": "Beaches & culture"},
+  {"id": "g-delhi-1", "name": "Kabir Khan", "destination": "Delhi", "languages": "English · Hindi", "rating": 4.7, "specialty": "History & museums"}
+]

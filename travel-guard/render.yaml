@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: inttravel
+    runtime: python
+    buildCommand: >-
+      python data_process/data_processor.py
+      --input-dir data_process/raw_data
+      --user-action-file user_action.csv
+      --user-profile-file user_profile.csv
+      --poi-info-file poi_info.csv
+      --poi-geographic-file poi_info_groupby_geographic.csv
+      && python data_process/post_process_features.py
+    startCommand: python trip_planner_app.py
+    healthCheckPath: /

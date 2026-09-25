@@ -1,0 +1,5 @@
+[
+  {"destination": "Jaipur", "location": "Amber Fort", "score": 42, "level": "Caution", "message": "Crowding and heat advisory near the fort."},
+  {"destination": "Goa", "location": "Baga Beach", "score": 48, "level": "Caution", "message": "Strong currents reported after sunset."},
+  {"destination": "Delhi", "location": "Red Fort", "score": 88, "level": "Good", "message": "No active disruption."}
+]

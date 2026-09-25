@@ -1,0 +1,14 @@
+[
+  {"name": "The Amber Courtyard", "destination": "Jaipur", "place": "Amber Fort", "trust_score": 4.8, "price": "₹₹₹", "amenities": "Breakfast · 24/7 desk"},
+  {"name": "Pink City Residency", "destination": "Jaipur", "place": "Hawa Mahal", "trust_score": 4.6, "price": "₹₹", "amenities": "Family rooms · Wi-Fi"},
+  {"name": "City Palace Haveli", "destination": "Jaipur", "place": "City Palace", "trust_score": 4.7, "price": "₹₹₹", "amenities": "Heritage rooms · Breakfast"},
+  {"name": "Jantar Mantar Suites", "destination": "Jaipur", "place": "Jantar Mantar", "trust_score": 4.5, "price": "₹₹", "amenities": "Rooftop · Wi-Fi"},
+  {"name": "Mandovi Bay Hotel", "destination": "Goa", "place": "Baga Beach", "trust_score": 4.7, "price": "₹₹₹", "amenities": "Pool · Airport transfer"},
+  {"name": "Fontainhas Heritage Inn", "destination": "Goa", "place": "Fontainhas", "trust_score": 4.6, "price": "₹₹", "amenities": "Breakfast · Old quarter"},
+  {"name": "Dudhsagar Nature Lodge", "destination": "Goa", "place": "Dudhsagar Falls", "trust_score": 4.5, "price": "₹₹", "amenities": "Nature stay · Transfers"},
+  {"name": "Panaji Riverside Hotel", "destination": "Goa", "place": "Panaji Market", "trust_score": 4.4, "price": "₹₹", "amenities": "City centre · Wi-Fi"},
+  {"name": "India Gate Central", "destination": "Delhi", "place": "India Gate", "trust_score": 4.6, "price": "₹₹₹", "amenities": "Concierge · Metro access"},
+  {"name": "Red Fort Residency", "destination": "Delhi", "place": "Red Fort", "trust_score": 4.5, "price": "₹₹", "amenities": "Breakfast · Metro access"},
+  {"name": "Humayun's Garden Hotel", "destination": "Delhi", "place": "Humayun's Tomb", "trust_score": 4.4, "price": "₹₹", "amenities": "Garden · Wi-Fi"},
+  {"name": "Lodhi Park Suites", "destination": "Delhi", "place": "Lodhi Garden", "trust_score": 4.3, "price": "₹₹", "amenities": "Quiet rooms · Breakfast"}
+]

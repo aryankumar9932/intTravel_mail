@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Travel Guard | AI Trip Planner</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header class="nav"><div class="brand"><span class="brand-mark">✦</span> Travel Guard</div><div class="nav-pill">AI trip planning, safety-first</div></header>
+  <main>
+    <section class="hero"><div><p class="eyebrow">AI / ML TRIP PLANNER</p><h1>Plan boldly.<br><em>Travel protected.</em></h1><p class="hero-copy">Gemini shapes the route while live safety alerts, local hotel picks, and verified guidance keep your trip grounded in reality.</p></div><div class="hero-art"><span>✈</span><span>◌</span><span>✦</span></div></section>
+    <section class="planner card">
+      <div class="section-heading"><div><p class="eyebrow">01 / YOUR TRIP</p><h2>Where are you headed?</h2></div><span class="status-dot">● Ready</span></div>
+      <div class="form-grid"><label>Destination<input id="destination" value="Jaipur" placeholder="e.g. Jaipur"></label><label>Number of days<input id="days" type="number" value="3" min="1" max="14"></label><label>Traveler type<select id="traveler"><option value="solo">Solo explorer</option><option value="family">Family</option><option value="budget">Budget traveler</option><option value="adventure">Adventure seeker</option></select></label><button id="plan-btn">Build my trip <span>→</span></button></div>
+    </section>
+    <section class="data-health card">
+      <div class="section-heading"><div><p class="eyebrow">DATA FOUNDATION</p><h2>All datasets connected</h2></div><span class="status-dot" id="data-status">● Checking...</span></div>
+      <p class="muted">These files power the recommendation and itinerary filtering pipeline.</p>
+      <div id="data-overview" class="data-overview"></div>
+    </section>
+    <div id="message" class="message"></div>
+    <section id="results" class="results hidden">
+      <div class="section-heading"><div><p class="eyebrow">02 / YOUR PLAN</p><h2 id="plan-title"></h2></div><span class="source" id="source"></span></div>
+      <div class="demo card"><div><span class="pulse">LIVE DEMO</span><h3>Watch the plan react to a safety alert</h3><p>A new alert appears on a planned stop. Our filter flags it and reroutes that day.</p></div><button id="disrupt-btn" class="danger">Trigger safety alert</button></div>
+      <div id="itinerary" class="itinerary"></div>
+      <section class="card route-panel"><div class="section-heading"><div><p class="eyebrow">EXPECTED ROUTE</p><h2>The tourist's planned route</h2></div><span class="source">Ready for live tracking</span></div><p class="muted">This route becomes the baseline for detecting when a live traveler goes significantly off-plan.</p><div id="expected-route" class="route-list"></div></section>
+      <section class="card ml-panel"><div class="section-heading"><div><p class="eyebrow">03 / MACHINE LEARNING</p><h2>All recommended places</h2></div><span class="source">Trained from Travel Guard insights</span></div><p class="muted">Every named place for your destination is highlighted and ranked using the local ML signals.</p><div id="recommendations" class="recommendations"></div></section>
+      <div class="split"><section class="card"><p class="eyebrow">STAY NEAR EVERY STOP</p><h2>Trusted hotels</h2><div id="hotels"></div></section><section class="card"><p class="eyebrow">LOCAL EXPERTS</p><h2>Book a verified guide</h2><div id="guides"></div></section></div>
+    </section>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>
