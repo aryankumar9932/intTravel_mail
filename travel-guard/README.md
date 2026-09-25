@@ -1,6 +1,79 @@
 # 📖 Overview
 This project explores **the unification of multiple recommendation tasks within a single, end-to-end generative model**.
 
+## FastAPI integration
+
+FastAPI is the single entry point for the complete project: it serves the existing
+web interface at `/`, the API at `/api/*`, the OpenAPI documentation, and the
+IntTravel recommendation engine. From the `travel-guard` directory, install the
+dependencies and start it:
+
+```bash
+pip install -r requirements.txt
+python -m uvicorn fastapi_app:app --host 0.0.0.0 --port 8000
+```
+
+On Windows, double-click [run_fastapi.bat](./run_fastapi.bat), or run
+[run_project.bat](./run_project.bat) if you also want to rebuild the processed
+data before startup. Do not run `trip_planner_app.py` separately; FastAPI
+imports its project logic.
+
+### Share a public API URL
+
+The API is not publicly reachable while it runs on `127.0.0.1`; that address is
+only your computer. To share it, push this repository to GitHub and deploy it
+with Render:
+
+1. In Render, choose **New > Blueprint** and select the repository.
+2. Render reads [render.yaml](./render.yaml), builds the data, and starts FastAPI.
+3. Share the generated URL, for example `https://inttravel.onrender.com`.
+
+The other project then uses:
+
+```javascript
+const API_URL = "https://inttravel.onrender.com";
+fetch(`${API_URL}/api/plan`, {
+  method: "POST",
+  headers: {"Content-Type": "application/json"},
+  body: JSON.stringify({
+    destination: "Jaipur",
+    days: 3,
+    travelerType: "solo"
+  })
+});
+```
+
+Set `CORS_ORIGINS` in Render to the exact frontend origin, for example
+`https://my-frontend.example.com`. The included [Dockerfile](./Dockerfile)
+can also deploy the same API to any Docker-compatible host.
+
+The interactive API documentation is available at
+`http://localhost:8000/docs`; OpenAPI JSON is available at
+`http://localhost:8000/openapi.json`.
+
+| Method | Endpoint | Purpose |
+|:---|:---|:---|
+| GET | `/health` | Service health check |
+| POST | `/api/plan` | Build a safety-aware itinerary |
+| POST | `/api/disruptions` | Add a live alert and recalculate the itinerary |
+| GET | `/api/recommendations` | Get ML-ranked POI recommendations |
+| POST | `/api/book-guide` | Create a guide booking |
+| GET | `/api/datasets` | Read the safety, hotel, and guide datasets |
+| GET | `/api/data-overview` | Check the ML input data status |
+| GET | `/api/ml-status` | Read recommender metadata |
+
+Example request:
+
+```bash
+curl -X POST http://localhost:8000/api/plan \
+  -H "Content-Type: application/json" \
+  -d "{\"destination\":\"Jaipur\",\"days\":3,\"travelerType\":\"solo\"}"
+```
+
+By default, browser requests from any origin are accepted for integration
+development. Set `CORS_ORIGINS` to a comma-separated allowlist in production,
+for example `https://my-frontend.example.com`.
+
 *   **IntTravel**: Our foundational work that introduced a large-scale, real-world dataset and a generative framework for integrated multi-task travel recommendation.
 *   **IntHQ**: The advanced successor to IntTravel, which identifies and resolves the "threefold collapse" in generative multi-task models with a novel architecture.
 
@@ -105,6 +178,3 @@ If you find our papers and code helpful for your research, please consider starr
   year={2026}
 }
 ```
-
-
-

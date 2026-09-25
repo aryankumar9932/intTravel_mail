@@ -13,7 +13,9 @@ FRONTEND = os.path.join(ROOT, "frontend")
 DATA_DIR = os.path.join(ROOT, "phase2_data")
 PORT = int(os.environ.get("PORT", "8000"))
 HOST = os.environ.get("HOST", "0.0.0.0")
-bookings = []
+BOOKINGS = []
+# Kept as an alias for clients that import the legacy module directly.
+bookings = BOOKINGS
 
 
 def load_data(name):
