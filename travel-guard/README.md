@@ -8,6 +8,9 @@ web interface at `/`, the API at `/api/*`, the OpenAPI documentation, and the
 IntTravel recommendation engine. From the `travel-guard` directory, install the
 dependencies and start it:
 
+The trip planner shows local hotel picks when available and provides a live
+Google Maps hotel search for any destination entered.
+
 ```bash
 pip install -r requirements.txt
 python -m uvicorn fastapi_app:app --host 0.0.0.0 --port 8000

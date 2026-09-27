@@ -2,14 +2,14 @@ services:
   - type: web
     name: inttravel
     runtime: python
-    rootDir: travel-guard
     buildCommand: >-
-      python data_process/data_processor.py
+      pip install -r requirements.txt
+      && python data_process/data_processor.py
       --input-dir data_process/raw_data
       --user-action-file user_action.csv
       --user-profile-file user_profile.csv
       --poi-info-file poi_info.csv
       --poi-geographic-file poi_info_groupby_geographic.csv
       && python data_process/post_process_features.py
-    startCommand: python -m uvicorn fastapi_app:app --host 0.0.0.0 --port $PORT
-    healthCheckPath: /health
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /
