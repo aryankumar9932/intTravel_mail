@@ -73,11 +73,26 @@ app = FastAPI(
 
 # Lets another project (a different domain/port, e.g. a separate React app
 # or another backend) call this API straight from the browser or server.
-# Tighten allow_origins to your real frontend's URL(s) before going to
-# production.
+configured_origins = os.environ.get("CORS_ORIGINS")
+allowed_origins = [
+    origin.strip()
+    for origin in (
+        ",".join(
+            filter(
+                None,
+                [
+                    configured_origins or "",
+                    "https://tourist-safety-app-one.vercel.app",
+                    "http://localhost:5173",
+                ],
+            )
+        )
+    ).split(",")
+    if origin.strip()
+]
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=allowed_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
