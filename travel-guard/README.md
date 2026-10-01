@@ -73,9 +73,9 @@ curl -X POST http://localhost:8000/api/plan \
   -d "{\"destination\":\"Jaipur\",\"days\":3,\"travelerType\":\"solo\"}"
 ```
 
-By default, browser requests from any origin are accepted for integration
-development. Set `CORS_ORIGINS` to a comma-separated allowlist in production,
-for example `https://my-frontend.example.com`.
+The deployed Vercel frontend is allowed by default. Set `CORS_ORIGINS` to a
+comma-separated allowlist in production to add other frontend origins, for
+example `https://my-frontend.example.com`.
 
 *   **IntTravel**: Our foundational work that introduced a large-scale, real-world dataset and a generative framework for integrated multi-task travel recommendation.
 *   **IntHQ**: The advanced successor to IntTravel, which identifies and resolves the "threefold collapse" in generative multi-task models with a novel architecture.

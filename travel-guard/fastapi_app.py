@@ -25,9 +25,21 @@ from trip_planner_app import (
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 FRONTEND = os.path.join(ROOT, "frontend")
+configured_origins = os.environ.get("CORS_ORIGINS")
 ALLOWED_ORIGINS = [
     origin.strip()
-    for origin in os.environ.get("CORS_ORIGINS", "*").split(",")
+    for origin in (
+        ",".join(
+            filter(
+                None,
+                [
+                    configured_origins or "",
+                    "https://tourist-safety-app-one.vercel.app",
+                    "http://localhost:5173",
+                ],
+            )
+        )
+    ).split(",")
     if origin.strip()
 ]
 
@@ -39,7 +51,7 @@ app = FastAPI(
 app.add_middleware(
     CORSMiddleware,
     allow_origins=ALLOWED_ORIGINS,
-    allow_credentials="*" not in ALLOWED_ORIGINS,
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
