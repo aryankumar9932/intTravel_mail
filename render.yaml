@@ -11,5 +11,9 @@ services:
       --poi-info-file poi_info.csv
       --poi-geographic-file poi_info_groupby_geographic.csv
       && python data_process/post_process_features.py
-    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
-    healthCheckPath: /
+    rootDir: travel-guard
+    envVars:
+      - key: CORS_ORIGINS
+        value: https://tourist-safety-app-one.vercel.app
+    startCommand: python -m uvicorn fastapi_app:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
