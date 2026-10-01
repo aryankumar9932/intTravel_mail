@@ -25,11 +25,12 @@ from trip_planner_app import (
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 FRONTEND = os.path.join(ROOT, "frontend")
-ALLOWED_ORIGINS = [
-    origin.strip()
-    for origin in os.environ.get("CORS_ORIGINS", "*").split(",")
-    if origin.strip()
-]
+CORS_ORIGINS = os.environ.get("CORS_ORIGINS", "*").strip()
+ALLOWED_ORIGINS = (
+    ["*"]
+    if not CORS_ORIGINS
+    else [origin.strip() for origin in CORS_ORIGINS.split(",") if origin.strip()]
+)
 
 app = FastAPI(
     title="Travel Guard API",

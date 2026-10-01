@@ -3,6 +3,9 @@ services:
     name: inttravel
     runtime: python
     rootDir: travel-guard
+    envVars:
+      - key: CORS_ORIGINS
+        value: https://tourist-safety-app-one.vercel.app
     buildCommand: >-
       python data_process/data_processor.py
       --input-dir data_process/raw_data
